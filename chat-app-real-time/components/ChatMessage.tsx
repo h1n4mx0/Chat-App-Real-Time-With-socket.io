@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 
 interface ChatMessageProps {
@@ -7,14 +8,14 @@ interface ChatMessageProps {
 }
 
 const ChatMessage = ({ sender, message, isOwnMessage}: ChatMessageProps) => {
-    const isSystemMessage = sender === "system"
+    const isSystemMessage = sender === "system";
     return (
         <div className={`flex ${
             isSystemMessage 
                 ? "justify-center" 
-                : isOwnMessage 
+                : isOwnMessage
                 ? "justify-end" 
-                : "justidy-start"
+                : "justify-start"
             } mb-3`}
         >
             <div className={`max-w-xs px-4 py-2 rounded-lg ${

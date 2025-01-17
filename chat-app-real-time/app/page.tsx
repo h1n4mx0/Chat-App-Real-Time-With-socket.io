@@ -11,6 +11,7 @@ export default function Home() {
     { sender: string; message: string }[]
   >([]);
   const [userName, setUserName] = useState("");
+
   useEffect(() => {
     socket.on("message", (data) => {
       setMessages((prev) => [...prev, data]);
@@ -25,7 +26,7 @@ export default function Home() {
   }, []);
   const handleJoinRoom = () => {
     if(room && userName) {
-      socket.emit("join_room", { room, username: userName});
+      socket.emit("join-room", { room, username: userName});
       setJoined(true);
     }
   }
